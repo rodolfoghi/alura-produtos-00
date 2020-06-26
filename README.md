@@ -63,6 +63,26 @@ Connection: keep-alive
 {"codigo":"LV001","nome":"Livro Inteligência Artificial como serviço","preco":29.9,"id":"1"}
 ```
 
+### Incluir um produto
+
+```bash
+$ curl -i -H "Content-Type: application/json" \
+--request POST \
+--data '{"codigo":"LV006","nome":"Livro Angular 8 e Firebase","preco":59.9}' \
+http://localhost:3000/produtos
+
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 74
+ETag: W/"4a-Np99ed+cxpkGpLng1evMMEzLMVM"
+Date: Fri, 26 Jun 2020 03:47:17 GMT
+Connection: keep-alive
+
+{"codigo":"LV006","nome":"Livro Angular 8 e Firebase","preco":59.9,"id":6}
+
+```
+
 ## Instalação
 
 ```bash

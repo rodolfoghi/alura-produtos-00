@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body } from '@nestjs/common';
 import { Produto } from './produto.model';
 
 @Controller('produtos')
@@ -19,6 +19,13 @@ export class ProdutosController {
         console.log(`Buscando o produto de id ${params.id}`);
         let produto: Produto = new Produto("LV001", "Livro Inteligência Artificial como serviço", 29.90);
         produto.id = params.id;
+        return produto;
+    }
+
+    @Post()
+    create(@Body() produto: Produto): Produto {
+        console.log(`Criando o produto ${produto.nome}`);
+        produto.id = 6;
         return produto;
     }
 }
