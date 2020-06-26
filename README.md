@@ -95,6 +95,18 @@ Content-Length: 0
 
 ```
 
+### Excluir um produto
+
+```bash
+$ curl -i -X DELETE http://localhost:3000/produtos/3
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Date: Fri, 26 Jun 2020 04:04:30 GMT
+Connection: keep-alive
+Content-Length: 0
+```
+
 ## Instalação
 
 ```bash
