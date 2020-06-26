@@ -83,6 +83,18 @@ Connection: keep-alive
 
 ```
 
+### Alterar um produto
+```bash
+$ curl -i -X PUT -H "Content-Type: application/json" -d '{"codigo":"LV006","nome":"Livro Angular 8 e Firebase","preco":59.9,"id":6}' http://localhost:3000/produtos/6
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Date: Fri, 26 Jun 2020 03:59:46 GMT
+Connection: keep-alive
+Content-Length: 0
+
+```
+
 ## Instalação
 
 ```bash

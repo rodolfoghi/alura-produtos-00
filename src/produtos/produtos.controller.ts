@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Put } from '@nestjs/common';
 import { Produto } from './produto.model';
 
 @Controller('produtos')
@@ -27,5 +27,10 @@ export class ProdutosController {
         console.log(`Criando o produto ${produto.nome}`);
         produto.id = 6;
         return produto;
+    }
+
+    @Put(':id')
+    update(@Param('id') id: number, @Body() produto: Produto) {
+        console.log(`Alterando o produto ${produto.nome} de ID ${id}`);
     }
 }
