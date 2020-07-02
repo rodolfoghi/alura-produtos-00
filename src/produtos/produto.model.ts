@@ -1,12 +1,13 @@
-export class Produto {
-    id: number;
-    codigo: string;
-    nome: string;
-    preco: number;
+import { Column, Model, Table } from 'sequelize-typescript';
 
-    constructor(codigo: string, nome: string, preco: number) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.preco = preco;
-    }
+@Table
+export class Produto extends Model<Produto> {
+    @Column
+    codigo: string;
+
+    @Column
+    nome: string;
+
+    @Column
+    preco: number;
 }
