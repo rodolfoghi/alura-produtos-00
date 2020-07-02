@@ -13,6 +13,44 @@ A entidade Produtos contém tudo o que é necessário para gerenciar os produtos
 | nome    | String | Nome do produto                 |
 | preco   | Number | Nome do produto                 |
 
+## Comandos SQL
+
+Conectando no MySQL
+```bash
+$ sudo mysql -u root -p
+```
+
+```sql
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+```
+
+Criando o banco de dados
+```sql
+mysql> create database alura_produtos;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| alura_produtos     |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+```
 
 ## Consumido
 

@@ -1,41 +1,33 @@
 import { Controller, Get, Param, Post, Body, Put, Delete } from '@nestjs/common';
 import { Produto } from './produto.model';
+import { ProdutoService } from './produto.service';
 
 @Controller('produtos')
 export class ProdutosController {
+    constructor(private produtoService: ProdutoService) {}
+
     @Get()
-    findAll(): Produto[] {
-        return [
-            new Produto("LV001", "Livro Inteligência Artificial como serviço", 29.90),
-            new Produto("LV002", "Livro Ionic 4", 39.90),
-            new Produto("LV003", "Livro Acessibilidade na Web", 49.90),
-            new Produto("LV004", "Livro React Native", 19.90),
-            new Produto("LV005", "Livro Manual de sobrevivência do novo programador", 29.90),
-        ];
+    async buscaTodos(): Promise<Produto[]> {
+        return this.produtoService.buscaTodos();
     }
 
     @Get(':id')
-    findOne(@Param() params) : Produto {
-        console.log(`Buscando o produto de id ${params.id}`);
-        let produto: Produto = new Produto("LV001", "Livro Inteligência Artificial como serviço", 29.90);
-        produto.id = params.id;
-        return produto;
+    async buscaUm(@Param('id') id: number) : Promise<Produto> {
+        return this.produtoService.buscaUm(id);
     }
 
     @Post()
-    create(@Body() produto: Produto): Produto {
-        console.log(`Criando o produto ${produto.nome}`);
-        produto.id = 6;
-        return produto;
+    async cria(@Body() produto: Produto): Promise<Produto> {
+        return this.produtoService.cria(produto);
     }
 
     @Put(':id')
-    update(@Param('id') id: number, @Body() produto: Produto) {
-        console.log(`Alterando o produto ${produto.nome} de ID ${id}`);
+    async atualiza(@Param('id') id: number, @Body() produto: Produto) {
+        this.produtoService.atualiza(id, produto);
     }
 
     @Delete(':id')
-    remove(@Param('id') id: number) {
-        console.log(`Removendo o produto de ID ${id}`);
+    async remove(@Param('id') id: number) {
+        this.produtoService.remove(id);
     }
 }
